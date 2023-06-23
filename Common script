@@ -1,1 +1,174 @@
-OH，no
+local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/sharksharksharkshark/Hub/main/1lolll.txt"))()
+local Window = OrionLib:MakeWindow({Name = "原石通用", HidePremium = false, SaveConfig = true,IntroText = "原石", ConfigFolder = "原之本.石之坚 原石"})
+
+CoreGui:SetCore("SendNotification", {
+    Title = "原石",
+    Text = "欢迎"..game.Players.LocalPlayer.Name.."使用原石通用",
+    Duration = 5,
+})
+
+local SU = Window:MakeTab({
+	Name = "设置",
+	Icon = "rbxassetid://12362540065",
+	PremiumOnly = false
+})
+
+SU:AddTextbox({
+    Name="生命",
+    Default = "请输入",
+    Callback=function(Value)
+    game.Players.LocalPlayer.Character.Humanoid.Health=Value
+    end
+})
+
+SU:AddTextbox({
+  Name = "速度",
+  Default = "请输入",
+  TextDisappear = true,
+  Callback = function(Value)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+  end
+})
+ 
+SU:AddTextbox({
+  Name = "跳跃",
+  Default = "请输入",
+  TextDisappear = true,
+  Callback = function(Value)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+  end
+})
+ 
+SU:AddTextbox({
+  Name = "重力",
+  Default = "请输入",
+  TextDisappear = true,
+  Callback = function(Value)
+    game.Workspace.Gravity = Value
+  end
+})
+
+local player = Window:MakeTab({
+  Name = "玩家"
+  Icon = "rbxassetid://13133167047",
+  PremiumOnly = false
+})
+
+player:AddToggle({
+	Name = "穿墙",
+	Default = false,
+	Callback = function(Value)
+		if Value then
+		    Noclip = true
+		    Stepped = game.RunService.Stepped:Connect(function()
+			    if Noclip == true then
+				    for a, b in pairs(game.Workspace:GetChildren()) do
+                        if b.Name == game.Players.LocalPlayer.Name then
+                            for i, v in pairs(game.Workspace[game.Players.LocalPlayer.Name]:GetChildren()) do
+                                if v:IsA("BasePart") then
+                                    v.CanCollide = false
+                                end
+                            end
+                        end
+                    end
+			    else
+				    Stepped:Disconnect()
+			    end
+		    end)
+	    else
+		    Noclip = false
+	    end
+	end
+})
+
+playerAddButton({
+	Name = "穿墙［高频］",
+	Callback = function()
+local Workspace = game:GetService("Workspace")
+local Players = game:GetService("Players")
+local Clipon = true
+
+Stepped = game:GetService("RunService").Stepped:Connect(function()
+	if not Clipon == false then
+		for a, b in pairs(Workspace:GetChildren()) do
+        if b.Name == Players.LocalPlayer.Name then
+        for i, v in pairs(Workspace[Players.LocalPlayer.Name]:GetChildren()) do
+        if v:IsA("BasePart") then
+        v.CanCollide = false
+        end end end end
+	else
+		Stepped:Disconnect()
+	end
+end)
+  end
+})
+
+player:AddButton({
+	Name = "跟踪玩家",
+	Callback = function()
+     loadstring(game:HttpGet("https://pastebin.com/raw/F9PNLcXk"))()
+  	end
+})
+
+player:AddToggle({
+	Name = "全亮",
+	Default = false,
+	Callback = function(Value)
+		if Value then
+		    game.Lighting.Ambient = Color3.new(1, 1, 1)
+		else
+		    game.Lighting.Ambient = Color3.new(0, 0, 0)
+		end
+	end
+})
+
+local Sp = Window:MakeTab({
+  Name = "通用脚本",
+  Icon = "rbxassetid://13133167047",
+  PremiumOnly = false
+})
+
+Sp:AddButton({
+	Name = "飞行V2-原石",
+	Callback = function()
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/wshibsiyedehl/Fly.Hub/main/YSv2.lua"))()
+  	end
+})
+
+Sp:AddButton({
+	Name = "SA工具",
+	Callback = function()
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/Bebo-Mods/BeboScripts/main/StandAwekening.lua"))()
+	end
+})
+
+Sp:AddButton({
+	Name = "阿尔宙斯V3（UI）",
+	Callback = function()
+     loadstring(game: HttpGet("https://raw.githubusercontent.com/AZYsGithub/chillz-workshop/main/Arceus%20X%20V3"))() 
+	end
+})
+
+Sp:AddButton({
+	Name = "甩人",
+	Callback = function()
+     loadstring(game:HttpGet("https://pastebin.com/raw/HAAY2rhe"))()
+	end
+})
+
+Sp:AddButton({
+	Name = "键盘",
+	Callback = function()
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
+	end
+})
+
+local GL = Window:MakeTab({
+  Name = "作者",
+  Icon = "rbxassetid://13133167047",
+  PremiumOnly = false
+})
+
+local Section = GL:AddSection({
+	Name = "作者:原石/温迪"
+})
